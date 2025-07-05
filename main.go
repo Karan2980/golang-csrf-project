@@ -1,6 +1,12 @@
 package main
 
-import "log"
+import (
+	"log"
+
+	"github.com/Karan2980/golang-csrf-project/db"
+	"github.com/Karan2980/golang-csrf-project/server"
+	myjwt "github.com/Karan2980/golang-csrf-project/server/middleware/myJwt"
+)
 
 var host = "localhost"
 var port = "9000"
@@ -8,7 +14,7 @@ var port = "9000"
 func main() {
 	db.InitDB()
 
-	jwtErr := myJwt.InitJET()
+	jwtErr := myjwt.InitJWT()
 	if jwtErr != nil {
 		log.Println("Error initializing the JWT!")
 	}
